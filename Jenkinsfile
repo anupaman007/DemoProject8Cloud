@@ -5,16 +5,19 @@ pipeline {
         stage('Dev Dummmy code') {
             steps {
                 echo 'Building the code.............'
+                bat "mvn clean"
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing the code.............'
+                bat "mvn test"
             }
         }
-        stage('Deploy') {
+        stage('Compile') {
             steps {
-                echo 'Deploying'
+                echo 'complilng the code..........'
+                bat "mvn compile"
             }
         }
         stage('Release') {
