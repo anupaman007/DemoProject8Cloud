@@ -2,12 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Dev Dummmy code') {
+        stage('Build') {
             steps {
                 echo 'Building the code.............'
-                sh "echo Building the code.............2 "
-                sh "hostname"
-                sh "uptime"
+               bat "mvn clean"
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing the code.............'
+               bat "mvn test"
+            }
+        }
+        stage('compile') {
+            steps {
+                echo 'compile the code.............'
+               bat "mvn compile"
             }
         }
     }
